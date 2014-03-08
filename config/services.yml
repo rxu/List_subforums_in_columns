@@ -1,0 +1,13 @@
+services:
+    rxu.list_subforums_in_columns.listener:
+        class: gfksx\list_subforums_in_columns\event\listener
+        arguments:
+            - @config
+            - @dbal.conn
+            - @auth
+            - @template
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
+        tags:
+            - { name: event.listener }
