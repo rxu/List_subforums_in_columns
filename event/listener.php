@@ -16,15 +16,16 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\auth\auth $auth, \phpbb\template\template $template, \phpbb\user $user, $phpbb_root_path, $php_ext)
+	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\auth\auth $auth, \phpbb\template\template $template, \phpbb\user $user, \phpbb\request\request_interface $request, $phpbb_root_path, $php_ext)
 	{
-	$this->template = $template;
-	$this->user = $user;
+		$this->template = $template;
+		$this->user = $user;
 		$this->auth = $auth;
 		$this->db = $db;
 		$this->config = $config;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $php_ext;
+		$this->request = $request;
 	}
 
 	static public function getSubscribedEvents()
@@ -73,7 +74,7 @@ class listener implements EventSubscriberInterface
 		$forum_data = $event['forum_data'];
 
 		$forum_data += array(
-			'forum_subforumslist_type'	=> request_var('subforumslist_type', 0),
+			'forum_subforumslist_type'	=> $this->request->variable('subforumslist_type', 0),
 		);
 
 		$event['forum_data'] = $forum_data;
