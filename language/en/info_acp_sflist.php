@@ -14,7 +14,7 @@
 */
 if (!defined('IN_PHPBB'))
 {
-   exit;
+	exit;
 }
 
 if (empty($lang) || !is_array($lang))
@@ -40,5 +40,3 @@ $lang = array_merge($lang, array(
 	'SUBFORUMSLIST_TYPE'				=> 'The number of columns for the list subforums',
 	'SUBFORUMSLIST_TYPE_EXPLAIN'		=> 'Enter the number of columns to list subforums. Set to 0 for linear list of subforums.',
 ));
-
-?>

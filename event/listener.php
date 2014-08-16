@@ -10,30 +10,22 @@
 namespace gfksx\ListSubforumsInColumns\event;
 
 /**
-* @ignore
-*/
-if (!defined('IN_PHPBB'))
-{
-    exit;
-}
-
-/**
 * Event listener
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-    public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\auth\auth $auth, \phpbb\template\template $template, \phpbb\user $user, $phpbb_root_path, $php_ext)
-    {
-        $this->template = $template;
-        $this->user = $user;
+	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\auth\auth $auth, \phpbb\template\template $template, \phpbb\user $user, $phpbb_root_path, $php_ext)
+	{
+	$this->template = $template;
+	$this->user = $user;
 		$this->auth = $auth;
 		$this->db = $db;
 		$this->config = $config;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $php_ext;
-    }
+	}
 
 	static public function getSubscribedEvents()
 	{
@@ -58,14 +50,14 @@ class listener implements EventSubscriberInterface
 			$sf_list = count($s_subforums_list_m);
 			if ($sf_list)
 			{
-				$rows = ceil ($sf_list / $row['forum_subforumslist_type']); 
-				$s_subforums_list_m = array_chunk($s_subforums_list_m, $rows);		
+				$rows = ceil ($sf_list / $row['forum_subforumslist_type']);
+				$s_subforums_list_m = array_chunk($s_subforums_list_m, $rows);
 				$s_subforums_list_str = '<br /> <span style="float: left;">';
 				$s_subforums_list_str .= (string) implode(',<br />', $s_subforums_list_m[0]);
 				$s_subforums_list_str .= '</span> ';
 				for ($i=1; $i*$rows < $sf_list; $i++)
 				{
-					$s_subforums_list_str .= '<span style="float: left;">&nbsp;&nbsp;';		
+					$s_subforums_list_str .= '<span style="float: left;">&nbsp;&nbsp;';
 					$s_subforums_list_str .= (string) implode(',<br />&nbsp;&nbsp;', $s_subforums_list_m[$i]);
 					$s_subforums_list_str .= '</span>';
 				}

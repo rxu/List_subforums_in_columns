@@ -1,5 +1,5 @@
 {
-    "name": "gfksx/list_subforums_in_columns",
+    "name": "gfksx/ListSubforumsInColumns",
     "type": "phpbb-extension",
     "description": "Allows to choose how subforums are listed - in line or in column(s) on per-forum basis.",
     "homepage": "http://www.phpbbguru.net",

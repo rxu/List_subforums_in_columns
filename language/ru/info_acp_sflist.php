@@ -14,7 +14,7 @@
 */
 if (!defined('IN_PHPBB'))
 {
-   exit;
+	exit;
 }
 
 if (empty($lang) || !is_array($lang))
@@ -38,4 +38,3 @@ $lang = array_merge($lang, array(
 	'SUBFORUMSLIST_TYPE'				=> 'Число колонок для списка подфорумов',
 	'SUBFORUMSLIST_TYPE_EXPLAIN'		=> 'Введите число колонок для отображения списка подфорумов. Значение "0" отключает вывод подфорумов в колонки (список выводится в строку).',
 ));
-?>

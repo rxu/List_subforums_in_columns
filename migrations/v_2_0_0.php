@@ -34,7 +34,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 
 	public function revert_schema()
 	{
-		return 	array(	
+		return 	array(
 			'drop_columns' => array(
 				$this->table_prefix . 'forums' => array('forum_subforumslist_type'),
 			),
