@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* @package list_subforums_in_columns
+* @package ListSubforumsInColumns
 * @copyright (c) 2014 Палыч (gfksx)
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
-namespace gfksx\list_subforums_in_columns\migrations;
+namespace gfksx\ListSubforumsInColumns\migrations;
 
 class v_2_0_0 extends \phpbb\db\migration\migration
 {

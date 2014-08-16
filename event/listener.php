@@ -1,13 +1,13 @@
 <?php
 /**
  *
- * @package list_subforums_in_columns
+ * @package ListSubforumsInColumns
  * @copyright (c) 2014 Палыч (gfksx)
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
 
-namespace gfksx\list_subforums_in_columns\event;
+namespace gfksx\ListSubforumsInColumns\event;
 
 /**
 * @ignore
@@ -89,7 +89,7 @@ class listener implements EventSubscriberInterface
 
 	public function acp_manage_forums_initialise_data($event)
 	{
-		$this->user->add_lang_ext('gfksx/list_subforums_in_columns', 'info_acp_sflist');
+		$this->user->add_lang_ext('gfksx/ListSubforumsInColumns', 'info_acp_sflist');
 
 		$forum_data = $event['forum_data'];
 		$forum_data += array(

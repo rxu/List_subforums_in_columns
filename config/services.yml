@@ -1,6 +1,6 @@
 services:
-    rxu.list_subforums_in_columns.listener:
-        class: gfksx\list_subforums_in_columns\event\listener
+    gfksx.ListSubforumsInColumns.listener:
+        class: gfksx\ListSubforumsInColumns\event\listener
         arguments:
             - @config
             - @dbal.conn
