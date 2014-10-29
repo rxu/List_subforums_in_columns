@@ -1,9 +1,10 @@
 <?php
 /**
 *
-* @package ListSubforumsInColumns
-* @copyright (c) 2014 Палыч (gfksx)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* List Subforums In Columns extension for the phpBB Forum Software package.
+*
+* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
@@ -23,12 +24,18 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 
 	public function update_schema()
 	{
-		return 	array(
-			'add_columns' => array(
-				$this->table_prefix . 'forums' => array(
-					'forum_subforumslist_type' => array('TINT:4', '0'),
+		// If 'forum_subforumslist_type' column exists, most likely this is an upgrade from the 3.0 MOD
+		if (!$this->db_tools->sql_column_exists($this->table_prefix . 'forums', 'forum_subforumslist_type'))
+		{
+			return 	array(
+				'add_columns' => array(
+					$this->table_prefix . 'forums' => array(
+						'forum_subforumslist_type' => array('TINT:4', '0'),
+					),
 				),
-			),
+			);
+		}
+		return array(
 		);
 	}
 

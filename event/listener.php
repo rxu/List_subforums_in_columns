@@ -1,11 +1,12 @@
 <?php
 /**
- *
- * @package ListSubforumsInColumns
- * @copyright (c) 2014 Палыч (gfksx)
- * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
- *
- */
+*
+* List Subforums In Columns extension for the phpBB Forum Software package.
+*
+* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
 
 namespace gfksx\ListSubforumsInColumns\event;
 
@@ -16,15 +17,23 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\auth\auth $auth, \phpbb\template\template $template, \phpbb\user $user, \phpbb\request\request_interface $request, $phpbb_root_path, $php_ext)
+	/** @var \phpbb\user */
+	protected $user;
+
+	/** @var \phpbb\request\request_interface */
+	protected $request;
+
+	/**
+	* Constructor
+	*
+	* @param \phpbb\user                          $user     Request object
+	* @param \phpbb\request\request_interface     $request  User object
+	* @return \rxu\ListSubforumsInColumns\event\listener
+	* @access public
+	*/
+	public function __construct(\phpbb\user $user, \phpbb\request\request_interface $request)
 	{
-		$this->template = $template;
 		$this->user = $user;
-		$this->auth = $auth;
-		$this->db = $db;
-		$this->config = $config;
-		$this->phpbb_root_path = $phpbb_root_path;
-		$this->php_ext = $php_ext;
 		$this->request = $request;
 	}
 

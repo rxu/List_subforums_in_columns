@@ -1,11 +1,10 @@
 <?php
 /**
 *
-* mod_sflist [Russian]
+* List Subforums In Columns extension for the phpBB Forum Software package.
 *
-* @package list_subforums_in_columns
-* @copyright (c) 2014 Палыч (gfksx)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
@@ -35,6 +34,6 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'SUBFORUMSLIST_TYPE'				=> 'Число колонок для списка подфорумов',
-	'SUBFORUMSLIST_TYPE_EXPLAIN'		=> 'Введите число колонок для отображения списка подфорумов. Значение "0" отключает вывод подфорумов в колонки (список выводится в строку).',
+	'SUBFORUMSLIST_TYPE'			=> 'Число колонок для списка подфорумов',
+	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Введите число колонок для отображения списка подфорумов. Значение "0" отключает вывод подфорумов в колонки (список выводится в строку).',
 ));

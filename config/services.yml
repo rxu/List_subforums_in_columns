@@ -2,13 +2,7 @@ services:
     gfksx.ListSubforumsInColumns.listener:
         class: gfksx\ListSubforumsInColumns\event\listener
         arguments:
-            - @config
-            - @dbal.conn
-            - @auth
-            - @template
             - @user
             - @request
-            - %core.root_path%
-            - %core.php_ext%
         tags:
             - { name: event.listener }

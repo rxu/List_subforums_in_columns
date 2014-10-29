@@ -1,11 +1,10 @@
 <?php
 /**
 *
-* mod_sflist [English]
+* List Subforums In Columns extension for the phpBB Forum Software package.
 *
-* @package list_subforums_in_columns
-* @copyright (c) 2014 Палыч (gfksx)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
@@ -37,6 +36,6 @@ if (empty($lang) || !is_array($lang))
 
 
 $lang = array_merge($lang, array(
-	'SUBFORUMSLIST_TYPE'				=> 'The number of columns for the list subforums',
-	'SUBFORUMSLIST_TYPE_EXPLAIN'		=> 'Enter the number of columns to list subforums. Set to 0 for linear list of subforums.',
+	'SUBFORUMSLIST_TYPE'			=> 'The number of columns for the list subforums',
+	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Enter the number of columns to list subforums. Set to 0 for linear list of subforums.',
 ));

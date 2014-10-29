@@ -1,11 +1,11 @@
 <?php
 /**
 *
-* mod_sflist [Dutch] translated by Dutch Translators (https://github.com/dutch-translators)
+* List Subforums In Columns extension for the phpBB Forum Software package.
+* Translated by Dutch Translators (https://github.com/dutch-translators)
 *
-* @package list_subforums_in_columns
-* @copyright (c) 2014 Палыч (gfksx)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
@@ -37,6 +37,6 @@ if (empty($lang) || !is_array($lang))
 
 
 $lang = array_merge($lang, array(
-	'SUBFORUMSLIST_TYPE'				=> 'Het aantal kolommen voor de lijst met subforums',
-	'SUBFORUMSLIST_TYPE_EXPLAIN'		=> 'Vul het aantal kolommen in om de subforums in weer te geven. Stel in op 0 voor lijnvormige lijst van subforums.',
+	'SUBFORUMSLIST_TYPE'			=> 'Het aantal kolommen voor de lijst met subforums',
+	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Vul het aantal kolommen in om de subforums in weer te geven. Stel in op 0 voor lijnvormige lijst van subforums.',
 ));
