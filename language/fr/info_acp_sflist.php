@@ -36,6 +36,6 @@ if (empty($lang) || !is_array($lang))
 
 
 $lang = array_merge($lang, array(
-	'SUBFORUMSLIST_TYPE'			=> 'Nombre de colonnes pour la liste des sous-forums',
-	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Entrer le nombre de colonnes pour lister les sous-forums. Paramétrer à 0 pour une liste linéaire des sous-forums.',
+	'SUBFORUMSLIST_TYPE'			=> 'Nombre de colonnes pour la liste des sous-forums dans la légende du forum parent ',
+	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Entrer le nombre de colonnes pour lister les sous-forums dans la légende du forum parent. Paramétrer à 0 pour une liste linéaire des sous-forums.',
 ));
