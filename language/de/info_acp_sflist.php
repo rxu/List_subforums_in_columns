@@ -38,5 +38,5 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'SUBFORUMSLIST_TYPE'			=> 'Die Anzahl der Spalten für die Liste der Unterforen',
-	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Gib die Anzahl der Spalten ein in die du die Liste der Unterforen in diesem Forum aufteilen möchtest. Gib 0 ein um die Funktion zu deaktivieren.',
+	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Gib die Anzahl der Spalten ein in die du die Liste der Unterforen in diesem Forum aufteilen möchtest. Gib 0 ein um diese Funktion zu deaktivieren.',
 ));
