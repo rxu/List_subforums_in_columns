@@ -23,6 +23,9 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\request\request_interface */
 	protected $request;
 
+	/** @var \phpbb\template\template */
+	protected $template;
+
 	/**
 	* Constructor
 	*
@@ -31,10 +34,11 @@ class listener implements EventSubscriberInterface
 	* @return \rxu\ListSubforumsInColumns\event\listener
 	* @access public
 	*/
-	public function __construct(\phpbb\user $user, \phpbb\request\request_interface $request)
+	public function __construct(\phpbb\user $user, \phpbb\request\request_interface $request, \phpbb\template\template $template)
 	{
 		$this->user = $user;
 		$this->request = $request;
+		$this->template = $template;
 	}
 
 	static public function getSubscribedEvents()
@@ -54,6 +58,11 @@ class listener implements EventSubscriberInterface
 		$subforums_count = count($subforums_row);
 		if ($subforums_count && (int) $row['forum_subforumslist_type'])
 		{
+			$this->template->assign_vars(array(
+				'S_PHPBB_31'	=> phpbb_version_compare(PHPBB_VERSION, '3.1.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '<'),
+				'S_PHPBB_32'	=> phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.3.0@dev', '<'),
+			));
+
 			$rows_per_column = (int) ceil($subforums_count / (int) $row['forum_subforumslist_type']);
 
 			foreach ($subforums_row as $number => $subforum_row)
