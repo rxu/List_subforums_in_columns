@@ -54,12 +54,13 @@ class listener implements EventSubscriberInterface
 	public function switch_columns($event)
 	{
 		$row = $event['row'];
+		$forum_row = $event['forum_row'];
 		$subforums_row = $event['subforums_row'];
 		$subforums_count = count($subforums_row);
 		if ($subforums_count && (int) $row['forum_subforumslist_type'])
 		{
+			$forum_row['S_COLUMNS_ENABLED'] = true;
 			$this->template->assign_vars(array(
-				'S_COLUMNS_ENABLED'	=> true,
 				'S_PHPBB_31'	=> phpbb_version_compare(PHPBB_VERSION, '3.1.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '<'),
 				'S_PHPBB_32'	=> phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.3.0@dev', '<'),
 			));
@@ -73,6 +74,7 @@ class listener implements EventSubscriberInterface
 					$subforums_row[$number]['S_SWITCH_COLUMN'] = true;
 				}
 			}
+			$event['forum_row'] = $forum_row;
 			$event['subforums_row'] = $subforums_row;
 		}
 	}
