@@ -23,6 +23,9 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\request\request_interface */
 	protected $request;
 
+	/** @var \phpbb\template\template */
+	protected $template;
+
 	/**
 	* Constructor
 	*
@@ -31,50 +34,46 @@ class listener implements EventSubscriberInterface
 	* @return \rxu\ListSubforumsInColumns\event\listener
 	* @access public
 	*/
-	public function __construct(\phpbb\user $user, \phpbb\request\request_interface $request)
+	public function __construct(\phpbb\user $user, \phpbb\request\request_interface $request, \phpbb\template\template $template)
 	{
 		$this->user = $user;
 		$this->request = $request;
+		$this->template = $template;
 	}
 
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.display_forums_modify_template_vars'		=> 'display_forums_modify_template_vars',
+			'core.display_forums_modify_template_vars'		=> 'switch_columns',
 			'core.acp_manage_forums_request_data'			=> 'acp_manage_forums_request_data',
 			'core.acp_manage_forums_initialise_data'		=> 'acp_manage_forums_initialise_data',
 			'core.acp_manage_forums_display_form'			=> 'acp_manage_forums_display_form',
 		);
 	}
 
-	public function display_forums_modify_template_vars($event)
+	public function switch_columns($event)
 	{
 		$row = $event['row'];
-		$forum_row = $event['forum_row'];
-
-		if (isset ($forum_row['SUBFORUMS']) && $row['forum_subforumslist_type'])
+		$subforums_row = $event['subforums_row'];
+		$subforums_count = count($subforums_row);
+		if ($subforums_count && (int) $row['forum_subforumslist_type'])
 		{
-			$s_subforums_list_m = array();
-			$s_subforums_list_str ='';
-			$s_subforums_list_m = explode($this->user->lang['COMMA_SEPARATOR'], $forum_row['SUBFORUMS']);
-			$sf_list = count($s_subforums_list_m);
-			if ($sf_list)
+			$this->template->assign_vars(array(
+				'S_COLUMNS_ENABLED'	=> true,
+				'S_PHPBB_31'	=> phpbb_version_compare(PHPBB_VERSION, '3.1.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '<'),
+				'S_PHPBB_32'	=> phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.3.0@dev', '<'),
+			));
+
+			$rows_per_column = (int) ceil($subforums_count / (int) $row['forum_subforumslist_type']);
+
+			foreach ($subforums_row as $number => $subforum_row)
 			{
-				$rows = ceil ($sf_list / $row['forum_subforumslist_type']);
-				$s_subforums_list_m = array_chunk($s_subforums_list_m, $rows);
-				$s_subforums_list_str = '<br /> <span style="float: left;">';
-				$s_subforums_list_str .= (string) implode(',<br />', $s_subforums_list_m[0]);
-				$s_subforums_list_str .= '</span> ';
-				for ($i=1; $i*$rows < $sf_list; $i++)
+				if (($number + 1) < $subforums_count && ($number + 1) % $rows_per_column == 0)
 				{
-					$s_subforums_list_str .= '<span style="float: left;">&nbsp;&nbsp;';
-					$s_subforums_list_str .= (string) implode(',<br />&nbsp;&nbsp;', $s_subforums_list_m[$i]);
-					$s_subforums_list_str .= '</span>';
+					$subforums_row[$number]['S_SWITCH_COLUMN'] = true;
 				}
-				$forum_row['FORUM_SUBFORUMSLIST_TYPE'] = (int) $row['forum_subforumslist_type'];
-				$forum_row['SUBFORUMS'] = $s_subforums_list_str;
-				$event['forum_row'] = $forum_row;
 			}
+			$event['subforums_row'] = $subforums_row;
 		}
 	}
 
