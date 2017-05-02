@@ -59,6 +59,7 @@ class listener implements EventSubscriberInterface
 		if ($subforums_count && (int) $row['forum_subforumslist_type'])
 		{
 			$this->template->assign_vars(array(
+				'S_COLUMNS_ENABLED'	=> true,
 				'S_PHPBB_31'	=> phpbb_version_compare(PHPBB_VERSION, '3.1.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '<'),
 				'S_PHPBB_32'	=> phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.3.0@dev', '<'),
 			));
