@@ -62,7 +62,7 @@ class listener implements EventSubscriberInterface
 			$forum_row['S_COLUMNS_ENABLED'] = true;
 			$this->template->assign_vars(array(
 				'S_PHPBB_31'	=> phpbb_version_compare(PHPBB_VERSION, '3.1.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '<'),
-				'S_PHPBB_32'	=> phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.3.0@dev', '<'),
+				'S_PHPBB_32'	=> phpbb_version_compare(PHPBB_VERSION, '3.2.0@dev', '>=') && phpbb_version_compare(PHPBB_VERSION, '4.4.0@dev', '<'),
 			));
 
 			$rows_per_column = (int) ceil($subforums_count / (int) $row['forum_subforumslist_type']);

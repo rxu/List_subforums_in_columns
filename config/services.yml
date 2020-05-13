@@ -2,8 +2,8 @@ services:
     gfksx.ListSubforumsInColumns.listener:
         class: gfksx\ListSubforumsInColumns\event\listener
         arguments:
-            - @user
-            - @request
-            - @template
+            - '@user'
+            - '@request'
+            - '@template'
         tags:
             - { name: event.listener }
