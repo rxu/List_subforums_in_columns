@@ -1,14 +1,15 @@
 <?php
 /**
-*
-* List Subforums In Columns extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
-* @license GNU General Public License, version 2 (GPL-2.0)
-*
-* French translation by Galixte (http://www.galixte.com)
-*
-*/
+ *
+ * List subforums in columns.
+ * Allows to choose how subforums are listed - in line or in column(s) on per-forum basis.
+ * An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2020, rxu, https://www.phpbbguru.net
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * French translation by Galixte (http://www.galixte.com)
+ */
 
 /**
 * DO NOT CHANGE
@@ -20,7 +21,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -37,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 
 
 
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'SUBFORUMSLIST_TYPE'			=> 'Nombre de colonnes pour la liste des sous-forums ',
 	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Entrer le nombre de colonnes pour séparer la liste des sous-forums dans la légende de ce forum. Paramétrer à 0 pour désactiver cette option.',
-));
+]);

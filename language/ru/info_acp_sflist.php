@@ -1,12 +1,14 @@
 <?php
 /**
-*
-* List Subforums In Columns extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
-* @license GNU General Public License, version 2 (GPL-2.0)
-*
-*/
+ *
+ * List subforums in columns.
+ * Allows to choose how subforums are listed - in line or in column(s) on per-forum basis.
+ * An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2020, rxu, https://www.phpbbguru.net
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
 
 /**
 * DO NOT CHANGE
@@ -18,7 +20,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -33,7 +35,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'SUBFORUMSLIST_TYPE'			=> 'Число колонок для списка подфорумов',
 	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Введите число колонок для отображения списка подфорумов. Значение "0" отключает вывод подфорумов в колонки (список выводится в строку).',
-));
+]);

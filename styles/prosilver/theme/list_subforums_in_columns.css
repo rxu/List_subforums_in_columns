@@ -1,5 +1,6 @@
 .list_subforums_in_columns {
     float: left;
+	padding-right: 2px;
 }
 
 .responsive-show {

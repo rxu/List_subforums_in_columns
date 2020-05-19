@@ -1,13 +1,14 @@
 <?php
 /**
-*
-* List Subforums In Columns extension for the phpBB Forum Software package.
-* Translated by Dutch Translators (https://github.com/dutch-translators)
-*
-* @copyright (c) 2013 phpBB Limited <https://www.phpbb.com>
-* @license GNU General Public License, version 2 (GPL-2.0)
-*
-*/
+ *
+ * List subforums in columns.
+ * Allows to choose how subforums are listed - in line or in column(s) on per-forum basis.
+ * An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2020, rxu, https://www.phpbbguru.net
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
 
 /**
 * DO NOT CHANGE
@@ -19,7 +20,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -36,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 
 
 
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'SUBFORUMSLIST_TYPE'			=> 'Het aantal kolommen voor de lijst met subforums',
 	'SUBFORUMSLIST_TYPE_EXPLAIN'	=> 'Vul het aantal kolommen in om de subforums in weer te geven. Stel in op 0 voor lijnvormige lijst van subforums.',
-));
+]);

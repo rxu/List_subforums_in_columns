@@ -8,7 +8,7 @@
 *
 */
 
-namespace gfksx\ListSubforumsInColumns\tests\functional;
+namespace rxu\listsubforumsincolumns\tests\functional;
 
 /**
  * @group functional
@@ -17,7 +17,7 @@ class extension_test extends \phpbb_functional_test_case
 {
 	static protected function setup_extensions()
 	{
-		return array('gfksx/ListSubforumsInColumns');
+		return array('rxu/listsubforumsincolumns');
 	}
 
 	public function test_forum_setting()
@@ -26,7 +26,7 @@ class extension_test extends \phpbb_functional_test_case
 		$this->admin_login();
 
 		$this->add_lang('acp/forums');
-		$this->add_lang_ext('gfksx/ListSubforumsInColumns', 'info_acp_sflist');
+		$this->add_lang_ext('rxu/listsubforumsincolumns', 'info_acp_sflist');
 		
 		$crawler = self::request('GET', "adm/index.php?i=acp_forums&icat=7&mode=manage&parent_id=1&f=2&action=edit&sid={$this->sid}");
 		$this->assertContains($this->lang('SUBFORUMSLIST_TYPE'), $crawler->filter('dt > label[for="subforumslist_type"]')->text());
@@ -49,7 +49,7 @@ class extension_test extends \phpbb_functional_test_case
 		$this->admin_login();
 
 		$this->add_lang('acp/forums');
-		$this->add_lang_ext('gfksx/ListSubforumsInColumns', 'info_acp_sflist');
+		$this->add_lang_ext('rxu/listsubforumsincolumns', 'info_acp_sflist');
 
 		$forum_names = ['Subforum #1', 'Subforum #2', 'Subforum #3'];
 		foreach ($forum_names as $forum_name)
@@ -78,7 +78,7 @@ class extension_test extends \phpbb_functional_test_case
 		$this->admin_login();
 
 		$this->add_lang('acp/forums');
-		$this->add_lang_ext('gfksx/ListSubforumsInColumns', 'info_acp_sflist');
+		$this->add_lang_ext('rxu/listsubforumsincolumns', 'info_acp_sflist');
 
 		$crawler = self::request('GET', "adm/index.php?i=acp_forums&icat=7&mode=manage&parent_id=1&f=2&action=edit&sid={$this->sid}");
 		$this->assertContains($this->lang('SUBFORUMSLIST_TYPE'), $crawler->filter('dt > label[for="subforumslist_type"]')->text());
